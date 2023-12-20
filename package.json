@@ -1,0 +1,53 @@
+{
+	"name": "@vyke/elements",
+	"type": "module",
+	"version": "0.0.7",
+	"description": "Easy way to generate DOM Elements in the client and the server",
+	"author": "Jose Albizures <jose@albizures.com> (https://albizures.com/)",
+	"license": "MIT",
+	"keywords": [],
+	"exports": {
+		".": {
+			"import": "./dist/index.mjs",
+			"require": "./dist/index.cjs"
+		},
+		"./dom": {
+			"import": "./dist/dom/index.mjs",
+			"require": "./dist/dom/index.cjs"
+		}
+	},
+	"main": "./dist/index.cjs",
+	"types": "./dist/index.d.ts",
+	"files": [
+		"dist/**/!(*.test.js)"
+	],
+	"scripts": {
+		"build": "unbuild",
+		"prepare": "pnpm build",
+		"test": "run-s test:unit test:types test:lint",
+		"test:types": "tsc --noEmit",
+		"test:use": "knip",
+		"test:lint": "eslint .",
+		"test:unit": "vitest run",
+		"test:unit:dev": "vitest",
+		"prepack": "pnpm build",
+		"release": "standard-version -t v && pnpm publish --access public"
+	},
+	"devDependencies": {
+		"@antfu/eslint-config": "^2.4.5",
+		"@testing-library/jest-dom": "^6.1.4",
+		"eslint": "^8.55.0",
+		"jsdom": "^23.0.0",
+		"knip": "^3.8.3",
+		"npm-run-all": "^4.1.5",
+		"standard-version": "^9.5.0",
+		"typescript": "^5.3.2",
+		"unbuild": "^2.0.0",
+		"vitest": "^0.34.6"
+	},
+	"standard-version": {
+		"skip": {
+			"changelog": true
+		}
+	}
+}
