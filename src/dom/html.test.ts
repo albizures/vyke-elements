@@ -1,8 +1,8 @@
 // @vitest-environment jsdom
 import { expect, expectTypeOf, it } from 'vitest'
 import * as matchers from '@testing-library/jest-dom/matchers'
-import { createProxy } from '../create.js'
-import { type HtmlChild, type HtmlConfig, createHtmlElement } from './html.js'
+import { createProxy } from '../create'
+import { type HtmlChild, type HtmlConfig, createHtmlElement } from './html'
 
 expect.extend(matchers as any)
 

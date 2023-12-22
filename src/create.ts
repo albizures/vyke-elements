@@ -1,4 +1,4 @@
-import type { CustomAttributes } from './attributes.js'
+import type { CustomAttributes } from './attributes'
 
 export type BuildFn<TName, TOutput> = (name: TName) => TOutput
 export type MutateFn<TOutput, TProps> = (item: TOutput, props?: Partial<TProps>) => TOutput

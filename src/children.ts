@@ -1,4 +1,4 @@
-import type { ElementString } from './elements.js'
+import type { ElementString } from './elements'
 
 export const CHILDREN_PLACEHOLDER = '<!children!>' as const
 

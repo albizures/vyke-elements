@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { type HtmlChild, type HtmlConfig, createHtmlElement, createProxy } from './index.js'
+import { type HtmlChild, type HtmlConfig, createHtmlElement, createProxy } from './index'
 
 const { a, p } = createProxy<HtmlConfig, HtmlChild>(createHtmlElement)
 

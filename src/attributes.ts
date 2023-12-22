@@ -1,4 +1,4 @@
-import type { ElementString } from './elements.js'
+import type { ElementString } from './elements'
 
 type DataAttributes = Record<`data-${string}`, any>
 

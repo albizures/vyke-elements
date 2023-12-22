@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { ATTRS_PLACEHOLDER, addAttributes, getAttributeName } from './attributes.js'
+import { ATTRS_PLACEHOLDER, addAttributes, getAttributeName } from './attributes'
 
 it('should support aria attributes', () => {
 	expect(getAttributeName('ariaLabel')).toBe('aria-label')

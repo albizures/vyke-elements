@@ -1,6 +1,6 @@
-import { dom$appendChildren } from '../children.js'
-import { create } from '../create.js'
-import { mutateElement } from '../elements.js'
+import { dom$appendChildren } from '../children'
+import { create } from '../create'
+import { mutateElement } from '../elements'
 
 type HtmlTags = HTMLElementTagNameMap
 type HtmlTag = keyof HtmlTags

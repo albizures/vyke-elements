@@ -1,26 +1,26 @@
-import { Fragment as DomFragment } from './dom/fragment.js'
-import { Fragment as ServerFragment } from './server/fragment.js'
+import { Fragment as DomFragment } from './dom/fragment'
+import { Fragment as ServerFragment } from './fragment'
 import {
 	type HtmlChild as DomHtmlChild,
 	type HtmlConfig as DomHtmlConfig,
 	createHtmlElement as createDomHtmlElement,
-} from './dom/html.js'
+} from './dom/html'
 import {
 	type HtmlChild as ServerHtmlChild,
 	type HtmlConfig as ServerHtmlConfig,
 	createHtmlElement as createServerHtmlElement,
-} from './server/html.js'
+} from './html'
 import {
 	type SvgChild as DomSvgChild,
 	type SvgConfig as DomSvgConfig,
 	createSvgElement as createDomSvgElement,
-} from './dom/svg.js'
+} from './dom/svg'
 import {
 	type SvgChild as ServerSvgChild,
 	type SvgConfig as ServerSvgConfig,
 	createSvgElement as createServerSvgElement,
-} from './server/svg.js'
-import type { Factory } from './create.js'
+} from './svg'
+import type { Factory } from './create'
 
 export {
 	type CreateConfigItem,
@@ -32,7 +32,7 @@ export {
 	type AppendFn,
 	create,
 	createProxy,
-} from './create.js'
+} from './create'
 
 export type HtmlChild = DomHtmlChild | ServerHtmlChild
 export type HtmlConfig = DomHtmlConfig | ServerHtmlConfig

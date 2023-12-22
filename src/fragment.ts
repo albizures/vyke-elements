@@ -1,4 +1,4 @@
-import type { HtmlChild } from './html.js'
+import type { HtmlChild } from './html'
 
 export function Fragment(...children: Array<HtmlChild>) {
 	return children.join('')
