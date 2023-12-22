@@ -14,6 +14,30 @@
 		"./dom": {
 			"import": "./dist/dom/index.mjs",
 			"require": "./dist/dom/index.cjs"
+		},
+		"./dom/html": {
+			"import": "./dist/dom/html.mjs",
+			"require": "./dist/dom/html.cjs"
+		},
+		"./dom/fragment": {
+			"import": "./dist/dom/fragment.mjs",
+			"require": "./dist/dom/fragment.cjs"
+		},
+		"./dom/svg": {
+			"import": "./dist/dom/svg.mjs",
+			"require": "./dist/dom/svg.cjs"
+		},
+		"./html": {
+			"import": "./dist/html.mjs",
+			"require": "./dist/html.cjs"
+		},
+		"./svg": {
+			"import": "./dist/svg.mjs",
+			"require": "./dist/svg.cjs"
+		},
+		"./fragment": {
+			"import": "./dist/fragment.mjs",
+			"require": "./dist/fragment.cjs"
 		}
 	},
 	"main": "./dist/index.cjs",

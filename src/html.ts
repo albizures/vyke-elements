@@ -1,7 +1,7 @@
-import { ATTRS_PLACEHOLDER, addAttributes } from '../attributes.js'
-import { create } from '../create.js'
-import { CHILDREN_PLACEHOLDER, server$appendChildren } from '../children.js'
-import type { ElementString } from '../elements.js'
+import { ATTRS_PLACEHOLDER, addAttributes } from './attributes.js'
+import { create } from './create.js'
+import { CHILDREN_PLACEHOLDER, server$appendChildren } from './children.js'
+import type { ElementString } from './elements.js'
 
 type HtmlTags = HTMLElementTagNameMap
 type HtmlTag = keyof HtmlTags

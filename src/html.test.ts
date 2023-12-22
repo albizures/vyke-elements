@@ -1,11 +1,11 @@
 import { expect, expectTypeOf, it } from 'vitest'
-import { createProxy } from '../create.js'
-import type { ElementString } from '../elements.js'
+import { createProxy } from './create.js'
+import type { ElementString } from './elements.js'
 import { type HtmlChild, type HtmlConfig, createHtmlElement } from './html.js'
 
 const { div, a, span, p } = createProxy<HtmlConfig, HtmlChild>(createHtmlElement)
 
-declare module '../attributes.js' {
+declare module './attributes.js' {
 	// eslint-disable-next-line ts/consistent-type-definitions
 	interface CustomAttributes {
 		[Name: `x-${string}`]: any
