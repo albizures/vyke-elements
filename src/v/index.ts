@@ -21,3 +21,13 @@ export {
 	type AnySvgElement,
 	createSvgElement,
 } from './svg'
+
+export {
+	type CreateConfigItem,
+	type CreateConfigMap,
+	type ProxyFactory,
+	type Factory,
+	type BuildFn,
+	type MutateFn,
+	type AppendFn,
+} from '../create'
