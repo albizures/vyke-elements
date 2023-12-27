@@ -1,7 +1,7 @@
-import { ATTRS_PLACEHOLDER, addAttributes, applyAttributes } from '../attributes'
+import { ATTRS_PLACEHOLDER, addAttributes } from '../attributes'
 import { CHILDREN_PLACEHOLDER, server$appendChildren } from '../children'
 import type { ElementString } from '../elements'
-import type { AnyVykeElement, InferName, InferOutput, VykeElementType } from './element'
+import type { AnyVykeElement, InferName } from './element'
 
 export function $<
 	TElement extends AnyVykeElement,
