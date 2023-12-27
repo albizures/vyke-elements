@@ -55,5 +55,5 @@ export function ref<
 }
 
 export function isRef(element: AnyVykeElement): element is AnyVykeRefElement {
-	return element[IS_REF]
+	return (element as any)[IS_REF]
 }
