@@ -1,5 +1,5 @@
 import { type BuildFn, create } from '../create'
-import type { VykeElement } from './element'
+import { VykeElement } from './element'
 import type { FragmentElement } from './fragment'
 import type { AnySvgElement } from './svg'
 
@@ -17,11 +17,7 @@ export type HtmlConfig = {
 }
 
 function buildElement<TName extends HtmlTag>(name: TName): VykeElement<TName, HtmlTags[TName], 'html'> {
-	return {
-		name,
-		type: 'html',
-		children: [],
-	}
+	return new VykeElement(name, 'html')
 }
 
 export function mutateElement<TElement extends AnyHtmlElement>(element: TElement, props?: Partial<TElement['props']>): TElement {

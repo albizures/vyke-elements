@@ -1,5 +1,5 @@
 import { type BuildFn, create } from '../create'
-import type { VykeElement } from './element'
+import { VykeElement } from './element'
 import type { FragmentElement } from './fragment'
 
 export type SvgTags = SVGElementTagNameMap
@@ -16,11 +16,7 @@ export type SvgConfig = {
 }
 
 function buildElement<TName extends SvgTag>(name: TName): VykeElement<TName, SvgTags[TName], 'svg'> {
-	return {
-		name,
-		type: 'svg',
-		children: [],
-	}
+	return new VykeElement(name, 'svg')
 }
 
 export function mutateElement<TElement extends AnySvgElement>(element: TElement, props?: Partial<TElement['props']>): TElement {

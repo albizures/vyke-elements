@@ -25,6 +25,18 @@ it('should create elements', () => {
 	expect(paragraph.querySelector('span')).toHaveAttribute('class', 'font-bold')
 })
 
+it('should diffentiate props from child', () => {
+	const paragraph = $(p(
+		a({ href: 'google.com' }, 'link to google'),
+		'content ',
+		span({ class: 'font-bold' }, 'foo')),
+	)
+
+	expect(paragraph).toHaveTextContent('link to google')
+	expect(paragraph).toHaveTextContent('content foo')
+	expect(paragraph.querySelector('span')).toHaveAttribute('class', 'font-bold')
+})
+
 it('should return the correct type', () => {
 	expectTypeOf($(a())).toMatchTypeOf<HTMLAnchorElement>()
 	expectTypeOf($(span())).toMatchTypeOf<HTMLSpanElement>()
