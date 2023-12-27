@@ -1,7 +1,7 @@
 {
 	"name": "@vyke/elements",
 	"type": "module",
-	"version": "0.0.10",
+	"version": "0.0.11",
 	"description": "Easy way to generate DOM Elements in the client and the server",
 	"author": "Jose Albizures <jose@albizures.com> (https://albizures.com/)",
 	"license": "MIT",
@@ -23,7 +23,6 @@
 			"import": "./dist/dom/fragment.mjs",
 			"require": "./dist/dom/fragment.cjs"
 		},
-
 		"./dom/svg": {
 			"import": "./dist/dom/svg.mjs",
 			"require": "./dist/dom/svg.cjs"
