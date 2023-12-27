@@ -12,13 +12,22 @@ export const elements = {
 export {
 	type HtmlChild,
 	type HtmlConfig,
+	type HtmlTag,
+	type HtmlTags,
+	type HtmlElement,
 	type AnyHtmlElement,
+	type HtmlBuildElement,
 	createHtmlElement,
 } from './html'
 export {
 	type SvgChild,
 	type SvgConfig,
+	type SvgTag,
+	type SvgTags,
+	type SvgElement,
+	type AnySvgProps,
 	type AnySvgElement,
+	type SvgBuildElement,
 	createSvgElement,
 } from './svg'
 
@@ -30,4 +39,5 @@ export {
 	type BuildFn,
 	type MutateFn,
 	type AppendFn,
+	type PropsLike,
 } from '../create'

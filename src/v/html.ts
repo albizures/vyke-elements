@@ -5,7 +5,7 @@ import type { AnySvgElement } from './svg'
 export type HtmlTags = HTMLElementTagNameMap
 export type HtmlTag = keyof HtmlTags
 
-export type Element<TName extends HtmlTag, TOutput> = {
+export type HtmlElement<TName extends HtmlTag, TOutput> = {
 	name: TName
 	props?: Partial<TOutput>
 	type: 'html'
@@ -15,16 +15,16 @@ export type Element<TName extends HtmlTag, TOutput> = {
 
 export type AnyProps = HTMLElementTagNameMap[keyof HtmlTags]
 
-export type AnyHtmlElement = Element<HtmlTag, AnyProps>
+export type AnyHtmlElement = HtmlElement<HtmlTag, AnyProps>
 export type HtmlChild = FragmentElement | AnyHtmlElement | AnySvgElement | string | undefined
 export type HtmlConfig = {
 	[TName in HtmlTag]: {
-		output: Element<TName, HtmlTags[TName]>
+		output: HtmlElement<TName, HtmlTags[TName]>
 		props: HtmlTags[TName]
 	}
 }
 
-function buildElement<TName extends HtmlTag>(name: TName): Element<TName, HtmlTags[TName]> {
+function buildElement<TName extends HtmlTag>(name: TName): HtmlElement<TName, HtmlTags[TName]> {
 	return {
 		name,
 		type: 'html',
@@ -49,10 +49,10 @@ export function appendChildren<
 	return element
 }
 
-export type BuildElement = BuildFn<HtmlTag, HtmlConfig[keyof HtmlConfig]['output']>
+export type HtmlBuildElement = BuildFn<HtmlTag, HtmlConfig[keyof HtmlConfig]['output']>
 
 export const createHtmlElement = create<HtmlConfig, HtmlChild>(
-	buildElement as BuildElement,
+	buildElement as HtmlBuildElement,
 	mutateElement,
 	appendChildren,
 )
