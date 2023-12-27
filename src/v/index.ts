@@ -41,3 +41,11 @@ export {
 	type AppendFn,
 	type PropsLike,
 } from '../create'
+
+export {
+	type DataAttributes,
+	type CustomAttributes,
+	type Setter,
+} from '../attributes'
+
+export { type ElementString } from '../elements'
