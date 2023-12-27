@@ -23,6 +23,7 @@
 			"import": "./dist/dom/fragment.mjs",
 			"require": "./dist/dom/fragment.cjs"
 		},
+
 		"./dom/svg": {
 			"import": "./dist/dom/svg.mjs",
 			"require": "./dist/dom/svg.cjs"
@@ -38,6 +39,22 @@
 		"./fragment": {
 			"import": "./dist/fragment.mjs",
 			"require": "./dist/fragment.cjs"
+		},
+		"./v": {
+			"import": "./dist/v/index.mjs",
+			"require": "./dist/v/index.cjs"
+		},
+		"./v/fragment": {
+			"import": "./dist/v/fragment.mjs",
+			"require": "./dist/v/fragment.cjs"
+		},
+		"./v/dom": {
+			"import": "./dist/v/dom.mjs",
+			"require": "./dist/v/dom.cjs"
+		},
+		"./v/server": {
+			"import": "./dist/v/server.mjs",
+			"require": "./dist/v/server.cjs"
 		}
 	},
 	"main": "./dist/index.cjs",
@@ -56,7 +73,8 @@
 		"test:unit:dev": "vitest",
 		"release:bump": "standard-version -t v",
 		"release:publish": "pnpm publish --access public",
-		"release": "run-s test build release:bump release:publish"
+		"release:push-tags": "git push --follow-tags origin main",
+		"release": "run-s test build release:bump release:publish release:push-tags"
 	},
 	"devDependencies": {
 		"@antfu/eslint-config": "^2.4.5",
