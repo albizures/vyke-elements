@@ -9,5 +9,15 @@ export const elements = {
 	svg: createProxy<SvgConfig, SvgChild>(createSvgElement),
 }
 
-export { type HtmlChild, type HtmlConfig, createHtmlElement, AnyHtmlElement } from './html'
-export { type SvgChild, type SvgConfig, createSvgElement, AnySvgElement } from './svg'
+export {
+	type HtmlChild,
+	type HtmlConfig,
+	type AnyHtmlElement,
+	createHtmlElement,
+} from './html'
+export {
+	type SvgChild,
+	type SvgConfig,
+	type AnySvgElement,
+	createSvgElement,
+} from './svg'
