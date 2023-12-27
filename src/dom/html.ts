@@ -2,8 +2,8 @@ import { dom$appendChildren } from '../children'
 import { create } from '../create'
 import { mutateElement } from '../elements'
 
-type HtmlTags = HTMLElementTagNameMap
-type HtmlTag = keyof HtmlTags
+export type HtmlTags = HTMLElementTagNameMap
+export type HtmlTag = keyof HtmlTags
 
 export type HtmlChild = Node | string | undefined
 export type HtmlConfig = {

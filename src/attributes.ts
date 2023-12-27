@@ -1,6 +1,6 @@
 import type { ElementString } from './elements'
 
-type DataAttributes = Record<`data-${string}`, any>
+export type DataAttributes = Record<`data-${string}`, any>
 
 // eslint-disable-next-line ts/consistent-type-definitions
 export interface CustomAttributes extends DataAttributes {
@@ -46,7 +46,7 @@ export function addAttributes<TName extends string>(
 	return element.replace(ATTRS_PLACEHOLDER, attrs) as ElementString<TName>
 }
 
-type Setter = (value: any) => void
+export type Setter = (value: any) => void
 const propSetterCache: Record<string, Setter | undefined> = {}
 
 function applyAttribute(element: Element, propName: string, value: unknown) {

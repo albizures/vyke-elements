@@ -3,8 +3,8 @@ import { create } from './create'
 import { CHILDREN_PLACEHOLDER, server$appendChildren } from './children'
 import type { ElementString } from './elements'
 
-type SvgTags = SVGElementTagNameMap
-type SvgTag = keyof SvgTags
+export type SvgTags = SVGElementTagNameMap
+export type SvgTag = keyof SvgTags
 
 export type SvgChild = string | undefined
 export type SvgConfig = {

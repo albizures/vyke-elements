@@ -1,10 +1,10 @@
 import { type BuildFn, create } from '../create'
 import type { FragmentElement } from './fragment'
 
-type SvgTags = SVGElementTagNameMap
-type SvgTag = keyof SvgTags
+export type SvgTags = SVGElementTagNameMap
+export type SvgTag = keyof SvgTags
 
-type Element<TName extends SvgTag, TOuput> = {
+export type Element<TName extends SvgTag, TOuput> = {
 	name: TName
 	_output?: TOuput
 	type: 'svg'
@@ -12,7 +12,7 @@ type Element<TName extends SvgTag, TOuput> = {
 	children: Array<SvgChild>
 }
 
-type AnyProps = SVGElementTagNameMap[keyof SvgTags]
+export type AnyProps = SVGElementTagNameMap[keyof SvgTags]
 
 export type AnySvgElement = Element<SvgTag, AnyProps>
 export type SvgChild = FragmentElement | AnySvgElement | string | undefined
@@ -48,7 +48,7 @@ export function appendChildren<
 	return element
 }
 
-type BuildElement = BuildFn<SvgTag, SvgConfig[keyof SvgConfig]['output']>
+export type BuildElement = BuildFn<SvgTag, SvgConfig[keyof SvgConfig]['output']>
 
 export const createSvgElement = create<SvgConfig, SvgChild>(
 	buildElement as BuildElement,

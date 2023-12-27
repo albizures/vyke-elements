@@ -3,8 +3,8 @@ import { create } from './create'
 import { CHILDREN_PLACEHOLDER, server$appendChildren } from './children'
 import type { ElementString } from './elements'
 
-type HtmlTags = HTMLElementTagNameMap
-type HtmlTag = keyof HtmlTags
+export type HtmlTags = HTMLElementTagNameMap
+export type HtmlTag = keyof HtmlTags
 
 export type HtmlChild = string | undefined
 export type HtmlConfig = {

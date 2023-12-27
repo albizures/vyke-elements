@@ -2,10 +2,10 @@ import { type BuildFn, create } from '../create'
 import type { FragmentElement } from './fragment'
 import type { AnySvgElement } from './svg'
 
-type HtmlTags = HTMLElementTagNameMap
-type HtmlTag = keyof HtmlTags
+export type HtmlTags = HTMLElementTagNameMap
+export type HtmlTag = keyof HtmlTags
 
-type Element<TName extends HtmlTag, TOutput> = {
+export type Element<TName extends HtmlTag, TOutput> = {
 	name: TName
 	props?: Partial<TOutput>
 	type: 'html'
@@ -13,7 +13,7 @@ type Element<TName extends HtmlTag, TOutput> = {
 	children: Array<HtmlChild>
 }
 
-type AnyProps = HTMLElementTagNameMap[keyof HtmlTags]
+export type AnyProps = HTMLElementTagNameMap[keyof HtmlTags]
 
 export type AnyHtmlElement = Element<HtmlTag, AnyProps>
 export type HtmlChild = FragmentElement | AnyHtmlElement | AnySvgElement | string | undefined
@@ -49,7 +49,7 @@ export function appendChildren<
 	return element
 }
 
-type BuildElement = BuildFn<HtmlTag, HtmlConfig[keyof HtmlConfig]['output']>
+export type BuildElement = BuildFn<HtmlTag, HtmlConfig[keyof HtmlConfig]['output']>
 
 export const createHtmlElement = create<HtmlConfig, HtmlChild>(
 	buildElement as BuildElement,

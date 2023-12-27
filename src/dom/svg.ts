@@ -2,8 +2,8 @@ import { dom$appendChildren } from '../children'
 import { create } from '../create'
 import { mutateElement } from '../elements'
 
-type SvgTags = SVGElementTagNameMap
-type SvgTag = keyof SvgTags
+export type SvgTags = SVGElementTagNameMap
+export type SvgTag = keyof SvgTags
 
 export type SvgChild = Node | string | undefined
 export type SvgConfig = {
