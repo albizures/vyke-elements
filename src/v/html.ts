@@ -1,30 +1,22 @@
 import { type BuildFn, create } from '../create'
+import type { VykeElement } from './element'
 import type { FragmentElement } from './fragment'
 import type { AnySvgElement } from './svg'
 
 export type HtmlTags = HTMLElementTagNameMap
 export type HtmlTag = keyof HtmlTags
 
-export type HtmlElement<TName extends HtmlTag, TOutput> = {
-	name: TName
-	props?: Partial<TOutput>
-	type: 'html'
-	_output?: TOutput
-	children: Array<HtmlChild>
-}
-
-export type AnyProps = HTMLElementTagNameMap[keyof HtmlTags]
-
-export type AnyHtmlElement = HtmlElement<HtmlTag, AnyProps>
-export type HtmlChild = FragmentElement | AnyHtmlElement | AnySvgElement | string | undefined
+export type AnyProps = HtmlTags[keyof HtmlTags]
+export type AnyHtmlElement = VykeElement<HtmlTag, AnyProps, 'html'>
+export type HtmlChild = FragmentElement | AnyHtmlElement | AnySvgElement | string | number | undefined
 export type HtmlConfig = {
 	[TName in HtmlTag]: {
-		output: HtmlElement<TName, HtmlTags[TName]>
+		output: VykeElement<TName, HtmlTags[TName], 'html'>
 		props: HtmlTags[TName]
 	}
 }
 
-function buildElement<TName extends HtmlTag>(name: TName): HtmlElement<TName, HtmlTags[TName]> {
+function buildElement<TName extends HtmlTag>(name: TName): VykeElement<TName, HtmlTags[TName], 'html'> {
 	return {
 		name,
 		type: 'html',

@@ -1,5 +1,6 @@
 import { applyAttributes } from '../attributes'
 import type { AnyVykeElement, InferOutput, VykeElementType } from './element'
+import { isRef, ref } from './ref'
 
 export function $<
 	TElement extends AnyVykeElement,
@@ -27,8 +28,14 @@ export function $<
 		}
 	}
 
+	if (isRef(element)) {
+		element.value = output
+	}
+
 	return output
 }
+
+$.ref = ref
 
 function getOutput<TOutput>(name: string, type: VykeElementType): TOutput {
 	if (type === 'html') {

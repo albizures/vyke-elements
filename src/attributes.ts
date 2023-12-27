@@ -4,7 +4,7 @@ export type DataAttributes = Record<`data-${string}`, any>
 
 // eslint-disable-next-line ts/consistent-type-definitions
 export interface CustomAttributes extends DataAttributes {
-	class: string
+
 }
 
 export const ATTRS_PLACEHOLDER = '<!attr!>' as const
