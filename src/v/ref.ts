@@ -8,13 +8,28 @@ export type VykeRefElement<TName, TElement, TType extends VykeElementType> = Vyk
 	onCreated: (handle: OnCreatedHandle<TElement>) => void
 }
 
+type InferFactoryOutput<TFactory> = TFactory extends () => infer TElement ? TElement : never
+type ConvertToRef<TElement> = TElement extends { name: infer TName, _output?: infer TOuput, type: infer TType }
+	? TType extends VykeElementType
+		? VykeRefElement<TName, TOuput, TType>
+		: never
+	: never
+
 export type AnyVykeRefElement = VykeRefElement<string, unknown, VykeElementType>
 export type OnCreatedHandle<TElement> = (element: TElement) => void
+export function ref<
+	TFactory extends () => AnyVykeElement,
+>(): ConvertToRef<InferFactoryOutput<TFactory>>
 export function ref<
 	TName,
 	TElement,
 	TType extends VykeElementType,
->(element: VykeElement<TName, TElement, TType>): VykeRefElement<TName, TElement, TType> {
+>(element: VykeElement<TName, TElement, TType>): VykeRefElement<TName, TElement, TType>
+export function ref<
+	TName,
+	TElement,
+	TType extends VykeElementType,
+>(element?: VykeElement<TName, TElement, TType>): VykeRefElement<TName, TElement, TType> {
 	let value: TElement
 	let onCreatedHandle: OnCreatedHandle<TElement>
 
@@ -22,7 +37,7 @@ export function ref<
 		onCreatedHandle = handle
 	}
 
-	return new Proxy(element, {
+	return new Proxy(element ?? {}, {
 		get(target, p, receiver) {
 			if (IS_REF === p) {
 				return true
@@ -54,6 +69,6 @@ export function ref<
 	}) as VykeRefElement<TName, TElement, TType>
 }
 
-export function isRef(element: AnyVykeElement): element is AnyVykeRefElement {
-	return (element as any)[IS_REF]
+export function isRef(element: unknown): element is AnyVykeRefElement {
+	return typeof element === 'object' && element !== null && (element as any)[IS_REF]
 }

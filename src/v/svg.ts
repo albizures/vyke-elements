@@ -1,6 +1,7 @@
 import { type BuildFn, create } from '../create'
 import { VykeElement } from './element'
 import type { FragmentElement } from './fragment'
+import type { VykeRefElement } from './ref'
 
 export type SvgTags = SVGElementTagNameMap
 export type SvgTag = keyof SvgTags
@@ -11,7 +12,9 @@ export type SvgChild = FragmentElement | AnySvgElement | number | string | undef
 export type SvgConfig = {
 	[TName in SvgTag]: {
 		output: VykeElement<TName, SvgTags[TName], 'svg'>
-		props: SvgTags[TName]
+		props: SvgTags[TName] & {
+			$ref: VykeRefElement<TName, SvgTags[TName], 'svg'>
+		}
 	}
 }
 

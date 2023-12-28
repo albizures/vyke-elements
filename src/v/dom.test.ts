@@ -57,6 +57,21 @@ describe('ref', () => {
 		expect(paragraph).toContainElement(text.value)
 	})
 
+	describe('as props', () => {
+		it('share the same element', () => {
+			const text = $.ref<typeof span>()
+			const paragraph = $(p({ 'data-value': '1' },
+				'content ',
+				span({ class: 'font-bold', $ref: text }, 'foo'),
+			))
+
+			expect(paragraph).toHaveAttribute('data-value', '1')
+			expect(paragraph).toHaveTextContent('content foo')
+			expect(paragraph.querySelector('span')).toHaveAttribute('class', 'font-bold')
+			expect(paragraph).toContainElement(text.value)
+		})
+	})
+
 	describe('when used before being created', () => {
 		it('should throw an error', () => {
 			const text = $.ref(span({ class: 'font-bold' }, 'foo'))

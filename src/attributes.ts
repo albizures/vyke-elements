@@ -3,7 +3,10 @@ import type { ElementString } from './elements'
 export type DataAttributes = Record<`data-${string}`, any>
 
 // eslint-disable-next-line ts/consistent-type-definitions
-export interface CustomAttributes extends DataAttributes {}
+export interface CustomAttributes extends DataAttributes {
+	// by default only className and classList are available
+	class: string
+}
 
 export const ATTRS_PLACEHOLDER = '<!attr!>' as const
 

@@ -9,7 +9,20 @@ export function $<
 	const { children, props } = element
 	const output = getOutput<TOutput>(element.name, element.type)
 
+	let setRefValue: (() => void) | undefined
+
 	if (props && output instanceof Element) {
+		if ('$ref' in props) {
+			const { $ref } = props
+			delete props.$ref
+
+			if (isRef($ref)) {
+				setRefValue = () => {
+					$ref.value = output
+				}
+			}
+		}
+
 		applyAttributes(output, props)
 	}
 
@@ -30,6 +43,10 @@ export function $<
 
 	if (isRef(element)) {
 		element.value = output
+	}
+
+	if (setRefValue) {
+		setRefValue()
 	}
 
 	return output

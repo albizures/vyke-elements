@@ -1,6 +1,7 @@
 import { type BuildFn, create } from '../create'
 import { VykeElement } from './element'
 import type { FragmentElement } from './fragment'
+import type { VykeRefElement } from './ref'
 import type { AnySvgElement } from './svg'
 
 export type HtmlTags = HTMLElementTagNameMap
@@ -12,7 +13,9 @@ export type HtmlChild = FragmentElement | AnyHtmlElement | AnySvgElement | strin
 export type HtmlConfig = {
 	[TName in HtmlTag]: {
 		output: VykeElement<TName, HtmlTags[TName], 'html'>
-		props: HtmlTags[TName]
+		props: HtmlTags[TName] & {
+			$ref: VykeRefElement<TName, HtmlTags[TName], 'html'>
+		}
 	}
 }
 
