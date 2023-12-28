@@ -52,8 +52,8 @@ export type Factory<TName, TOutput, TChild> = (
 	...children: Array<TChild>
 ) => TOutput
 
-export type ProxyFactory<TOutput, TChild> = (
-	props?: Partial<TOutput | PropsLike | CustomAttributes> | TChild,
+export type ProxyFactory<TOutput, TProps, TChild> = (
+	props?: Partial<TProps | PropsLike | CustomAttributes> | TChild,
 	...children: Array<TChild>
 ) => TOutput
 
@@ -71,6 +71,6 @@ export function createProxy<
 			return (props: any, ...args: Array<any>) => fn(property, props, ...args)
 		},
 	}) as unknown as {
-		[TName in keyof TConfigMap]: ProxyFactory<TConfigMap[TName]['output'], TChild>
+		[TName in keyof TConfigMap]: ProxyFactory<TConfigMap[TName]['output'], TConfigMap[TName]['props'], TChild>
 	}
 }
