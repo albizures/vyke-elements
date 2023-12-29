@@ -46,4 +46,12 @@ export {
 	type Setter,
 } from '../attributes'
 
+export {
+	VykeElement,
+	type VykeElementType,
+	type AnyVykeElement,
+	type VykeChild,
+	type InferOutput,
+	type InferName,
+} from './element'
 export { type ElementString } from '../elements'
