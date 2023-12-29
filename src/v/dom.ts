@@ -6,6 +6,10 @@ export function $<
 	TElement extends AnyVykeElement,
 	TOutput = InferOutput<TElement>,
 >(element: TElement): TOutput {
+	if (isRef(element) && element.asProp) {
+		throw new Error('using prop ref as element')
+	}
+
 	const { children, props } = element
 	const output = getOutput<TOutput>(element.name, element.type)
 

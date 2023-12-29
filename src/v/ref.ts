@@ -4,6 +4,7 @@ const IS_REF = Symbol('is-ref')
 
 export type VykeRefElement<TName, TElement, TType extends VykeElementType> = VykeElement<TName, TElement, TType> & {
 	[IS_REF]: true
+	asProp: boolean
 	value: TElement
 	onCreated: (handle: OnCreatedHandle<TElement>) => void
 }
@@ -32,6 +33,7 @@ export function ref<
 >(element?: VykeElement<TName, TElement, TType>): VykeRefElement<TName, TElement, TType> {
 	let value: TElement
 	let onCreatedHandle: OnCreatedHandle<TElement>
+	const asProp = !element
 
 	function onCreated(handle: OnCreatedHandle<TElement>) {
 		onCreatedHandle = handle
@@ -43,9 +45,14 @@ export function ref<
 				return true
 			}
 
+			if (p === 'asProp') {
+				return asProp
+			}
+
 			if (p === 'value') {
 				if (!value) {
-					throw new Error('use of ref value before being available')
+					const asPropMessage = asProp ? 'Did you set it as prop?' : ''
+					throw new Error(`use of ref value before being available.${asPropMessage}`)
 				}
 
 				return value
