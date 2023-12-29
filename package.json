@@ -1,7 +1,7 @@
 {
 	"name": "@vyke/elements",
 	"type": "module",
-	"version": "0.0.20",
+	"version": "0.0.21",
 	"description": "Easy way to generate DOM Elements in the client and the server",
 	"author": "Jose Albizures <jose@albizures.com> (https://albizures.com/)",
 	"license": "MIT",
