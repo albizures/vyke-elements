@@ -54,4 +54,12 @@ export {
 	type InferOutput,
 	type InferName,
 } from './element'
+
+export {
+	type VykeRefElement,
+	type AnyVykeRefElement,
+	type OnCreatedHandle,
+	type InferFactoryOutput,
+	type ConvertToRef,
+} from './ref'
 export { type ElementString } from '../elements'

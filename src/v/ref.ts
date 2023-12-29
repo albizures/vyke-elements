@@ -9,8 +9,8 @@ export type VykeRefElement<TName, TElement, TType extends VykeElementType> = Vyk
 	onCreated: (handle: OnCreatedHandle<TElement>) => void
 }
 
-type InferFactoryOutput<TFactory> = TFactory extends () => infer TElement ? TElement : never
-type ConvertToRef<TElement> = TElement extends { name: infer TName, _output?: infer TOuput, type: infer TType }
+export type InferFactoryOutput<TFactory> = TFactory extends () => infer TElement ? TElement : never
+export type ConvertToRef<TElement> = TElement extends { name: infer TName, _output?: infer TOuput, type: infer TType }
 	? TType extends VykeElementType
 		? VykeRefElement<TName, TOuput, TType>
 		: never
