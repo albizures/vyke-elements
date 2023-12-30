@@ -58,6 +58,9 @@ export function $<
 
 $.ref = ref
 
+export { isRef, ref, type VykeRefElement } from './ref'
+export type { AnyVykeElement, VykeElement, VykeElementType } from './element'
+
 function getOutput<TOutput>(name: string, type: VykeElementType): TOutput {
 	if (type === 'html') {
 		return document.createElement(name) as unknown as TOutput
