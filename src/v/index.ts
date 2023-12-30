@@ -61,5 +61,7 @@ export {
 	type OnCreatedHandle,
 	type InferFactoryOutput,
 	type ConvertToRef,
+	ref,
 } from './ref'
+
 export { type ElementString } from '../elements'

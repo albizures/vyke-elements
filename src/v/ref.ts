@@ -18,6 +18,7 @@ export type ConvertToRef<TElement> = TElement extends { name: infer TName, _outp
 
 export type AnyVykeRefElement = VykeRefElement<string, unknown, VykeElementType>
 export type OnCreatedHandle<TElement> = (element: TElement) => void
+
 export function ref<
 	TFactory extends () => AnyVykeElement,
 >(): ConvertToRef<InferFactoryOutput<TFactory>>
