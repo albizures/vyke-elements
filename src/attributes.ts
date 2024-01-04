@@ -42,9 +42,12 @@ export function addAttributes<TName extends string>(
 	let attrs = ''
 	if (props) {
 		attrs = buildAttributes(props)
+		return element.replace(ATTRS_PLACEHOLDER, attrs) as ElementString<TName>
 	}
-
-	return element.replace(ATTRS_PLACEHOLDER, attrs) as ElementString<TName>
+	else {
+		// removing extra space in case there is not attributes
+		return element.replace(` ${ATTRS_PLACEHOLDER}`, '') as ElementString<TName>
+	}
 }
 
 export type Setter = (value: any) => void

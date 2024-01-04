@@ -5,20 +5,20 @@ import type { AnyVykeElement, InferName } from './element'
 
 export function $<
 	TElement extends AnyVykeElement,
-	TOutput = ElementString<InferName<TElement>>,
+	TOutput extends ElementString<InferName<TElement>> = ElementString<InferName<TElement>>,
 >(element: TElement): TOutput {
 	const { children, props } = element
-	const output = getOutput<TOutput>(element.name)
+	let output = getOutput<TOutput>(element.name)
 
-	if (props && isElementString(output)) {
-		addAttributes(output, props)
+	if (isElementString(output)) {
+		output = addAttributes(output, props) as TOutput
 
-		server$appendChildren(output, children.map((child) => {
+		output = server$appendChildren(output, children.map((child) => {
 			if (typeof child === 'object') {
 				return $(child)
 			}
 			return typeof child === 'undefined' ? '' : String(child)
-		}))
+		})) as TOutput
 	}
 
 	return output

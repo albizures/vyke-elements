@@ -53,7 +53,7 @@ export function ref<
 			if (p === 'value') {
 				if (!value) {
 					const asPropMessage = asProp ? 'Did you set it as prop?' : ''
-					throw new Error(`use of ref value before being available.${asPropMessage}`)
+					throw new Error(`use of ref value before being available. ${asPropMessage}`)
 				}
 
 				return value
