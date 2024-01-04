@@ -1,4 +1,4 @@
-import { describe, expect, it, vi } from 'vitest'
+import { expect, it } from 'vitest'
 import { createProxy } from '../create'
 import { $ } from './server'
 import { type HtmlChild, type HtmlConfig, createHtmlElement } from './html'
