@@ -1,6 +1,6 @@
-import { ATTRS_PLACEHOLDER, addAttributes } from '../attributes'
-import { CHILDREN_PLACEHOLDER, server$appendChildren } from '../children'
-import type { ElementString } from '../elements'
+import { ATTRS_PLACEHOLDER, addAttributes } from './attributes'
+import { CHILDREN_PLACEHOLDER, insertChildren } from './children'
+import type { ElementString } from './elements'
 import type { AnyVykeElement, InferName } from './element'
 
 export function $<
@@ -13,7 +13,7 @@ export function $<
 	if (isElementString(output)) {
 		output = addAttributes(output, props) as TOutput
 
-		output = server$appendChildren(output, children.map((child) => {
+		output = insertChildren(output, children.map((child) => {
 			if (typeof child === 'object') {
 				return $(child)
 			}

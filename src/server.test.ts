@@ -1,5 +1,5 @@
 import { expect, it } from 'vitest'
-import { createProxy } from '../create'
+import { createProxy } from './create'
 import { $ } from './server'
 import { type HtmlChild, type HtmlConfig, createHtmlElement } from './html'
 

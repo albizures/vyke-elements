@@ -1,26 +1,11 @@
-import { Fragment as DomFragment } from './dom/fragment'
-import { Fragment as ServerFragment } from './fragment'
-import {
-	type HtmlChild as DomHtmlChild,
-	type HtmlConfig as DomHtmlConfig,
-	createHtmlElement as createDomHtmlElement,
-} from './dom/html'
-import {
-	type HtmlChild as ServerHtmlChild,
-	type HtmlConfig as ServerHtmlConfig,
-	createHtmlElement as createServerHtmlElement,
-} from './html'
-import {
-	type SvgChild as DomSvgChild,
-	type SvgConfig as DomSvgConfig,
-	createSvgElement as createDomSvgElement,
-} from './dom/svg'
-import {
-	type SvgChild as ServerSvgChild,
-	type SvgConfig as ServerSvgConfig,
-	createSvgElement as createServerSvgElement,
-} from './svg'
-import type { Factory } from './create'
+import { createProxy } from './create'
+import { type HtmlChild, type HtmlConfig, createHtmlElement } from './html'
+import { type SvgChild, type SvgConfig, createSvgElement } from './svg'
+
+export const elements = {
+	html: createProxy<HtmlConfig, HtmlChild>(createHtmlElement),
+	svg: createProxy<SvgConfig, SvgChild>(createSvgElement),
+}
 
 export {
 	type CreateConfigItem,
@@ -34,22 +19,50 @@ export {
 	createProxy,
 } from './create'
 
-export type HtmlChild = DomHtmlChild | ServerHtmlChild
-export type HtmlConfig = DomHtmlConfig | ServerHtmlConfig
-export type CreateHtmlElement = Factory<
-	keyof HtmlConfig,
-	HtmlConfig[keyof HtmlConfig]['output'],
-	HtmlChild
->
-export const createHtmlElement = (typeof window === 'undefined' ? createServerHtmlElement : createDomHtmlElement) as CreateHtmlElement
+export { Fragment, type FragmentElement } from './fragment'
 
-export type SvgChild = DomSvgChild | ServerSvgChild
-export type SvgConfig = DomSvgConfig | ServerSvgConfig
-export type CreateSvgElement = Factory<
-	keyof SvgConfig,
-	SvgConfig[keyof SvgConfig]['output'],
-	SvgChild
->
-export const createSvgElement = (typeof window === 'undefined' ? createServerSvgElement : createDomSvgElement) as CreateSvgElement
+export {
+	type HtmlChild,
+	type HtmlConfig,
+	type HtmlTag,
+	type HtmlTags,
+	type AnyHtmlElement,
+	type HtmlBuildElement,
+	createHtmlElement,
+} from './html'
+export {
+	type SvgChild,
+	type SvgConfig,
+	type SvgTag,
+	type SvgTags,
+	type AnySvgProps,
+	type AnySvgElement,
+	type SvgBuildElement,
+	createSvgElement,
+} from './svg'
 
-export const Fragment = typeof window === 'undefined' ? ServerFragment : DomFragment
+export {
+	type DataAttributes,
+	type CustomAttributes,
+	type Setter,
+} from './attributes'
+
+export {
+	VykeElement,
+	type VykeElementType,
+	type AnyVykeElement,
+	type VykeChild,
+	type InferOutput,
+	type InferName,
+} from './element'
+
+export {
+	type VykeRefElement,
+	type AnyVykeRefElement,
+	type OnCreatedHandle,
+	type InferFactoryOutput,
+	type ConvertToRef,
+	ref,
+} from './ref'
+
+export { type ElementString } from './elements'

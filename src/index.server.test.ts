@@ -1,9 +1,10 @@
 import { expect, it } from 'vitest'
-import { type HtmlChild, type HtmlConfig, createHtmlElement, createProxy } from './index'
+import { $ } from './server'
+import { elements } from './index'
 
-const { a, p } = createProxy<HtmlConfig, HtmlChild>(createHtmlElement)
+const { a, p } = elements.html
 
 it('should return a string element', () => {
-	const result = p({ class: 'test' }, a('google'))
+	const result = $(p({ class: 'test' }, a('google')))
 	expect(typeof result).toBe('string')
 })

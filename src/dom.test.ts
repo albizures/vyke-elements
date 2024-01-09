@@ -1,7 +1,7 @@
 // @vitest-environment jsdom
 import { describe, expect, expectTypeOf, it, vi } from 'vitest'
 import * as matchers from '@testing-library/jest-dom/matchers'
-import { createProxy } from '../create'
+import { createProxy } from './create'
 import { $ } from './dom'
 import { type HtmlChild, type HtmlConfig, createHtmlElement } from './html'
 

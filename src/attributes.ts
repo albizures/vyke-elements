@@ -39,9 +39,8 @@ export function addAttributes<TName extends string>(
 	element: ElementString<TName>,
 	props?: Record<string, unknown>,
 ): ElementString<TName> {
-	let attrs = ''
-	if (props) {
-		attrs = buildAttributes(props)
+	const attrs = buildAttributes(props ?? {}).trim()
+	if (attrs !== '') {
 		return element.replace(ATTRS_PLACEHOLDER, attrs) as ElementString<TName>
 	}
 	else {

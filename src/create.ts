@@ -7,7 +7,7 @@ export type AppendFn<TOutput, TChild> = (item: TOutput, children: Array<TChild>)
 const protoOf = Object.getPrototypeOf
 const rootProto = protoOf({})
 
-export type PropsLike = Record<string, any>
+type PropsLike = Record<string, any>
 
 export type CreateConfigItem<TOutput, TProps> = { output: TOutput, props: TProps }
 export type CreateConfigMap<

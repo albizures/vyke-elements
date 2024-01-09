@@ -1,4 +1,4 @@
-import { applyAttributes } from '../attributes'
+import { applyAttributes } from './attributes'
 import type { AnyVykeElement, InferOutput, VykeElementType } from './element'
 import { isRef, ref } from './ref'
 

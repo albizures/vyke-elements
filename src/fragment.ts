@@ -1,5 +1,8 @@
 import type { HtmlChild } from './html'
+import { VykeElement } from './element'
 
-export function Fragment(...children: Array<HtmlChild>) {
-	return children.join('')
+export type FragmentElement = VykeElement<'FRAGMENT', DocumentFragment, 'fragment'>
+
+export function Fragment(...children: Array<HtmlChild>): FragmentElement {
+	return new VykeElement('FRAGMENT', 'fragment', children)
 }
