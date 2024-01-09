@@ -12,8 +12,8 @@
 			"require": "./dist/index.cjs"
 		},
 		"./dom": {
-			"import": "./dist/dom/index.mjs",
-			"require": "./dist/dom/index.cjs"
+			"import": "./dist/dom.mjs",
+			"require": "./dist/dom.cjs"
 		},
 		"./fragment": {
 			"import": "./dist/fragment.mjs",
